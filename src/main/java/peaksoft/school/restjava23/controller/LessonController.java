@@ -24,4 +24,19 @@ public class LessonController {
     public String create(@RequestBody LessonRequest lessonRequest){
         return lessonService.create(lessonRequest);
     }
+
+    @PutMapping("/{id}")
+    public String update(@RequestBody LessonRequest lessonRequest, @PathVariable Long id){
+        return lessonService.udpate(lessonRequest, id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id){
+        return lessonService.delete(id);
+    }
+
+    @GetMapping("/get")
+    public List<LessonResponse> getLessonByName(@RequestParam("name") String name){
+        return lessonService.getByName(name);
+    }
 }

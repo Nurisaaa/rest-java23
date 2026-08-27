@@ -45,4 +45,30 @@ public class LessonServiceImpl implements LessonService{
         lessonRepository.save(lesson);
         return "Lesson created";
     }
+
+    @Override
+    public String udpate(LessonRequest lessonRequest, Long id) {
+        Lesson lesson = lessonRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Lesson not found")
+        );
+        lesson.setName(lessonRequest.getName());
+        lesson.setDateOfPublication(lessonRequest.getDateOfPublication());
+        lessonRepository.save(lesson);
+        return "Lesson updated";
+    }
+
+    @Override
+    public String delete(Long id) {
+        Lesson lesson = lessonRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Lesson not found")
+        );
+        lesson.setCourse(null);
+        lessonRepository.delete(lesson);
+        return "Lesson deleted";
+    }
+
+    @Override
+    public List<LessonResponse> getByName(String name) {
+        return lessonRepository.findAllByName(name);
+    }
 }

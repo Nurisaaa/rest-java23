@@ -9,5 +9,11 @@ public interface LessonService {
     List<LessonResponse> getAllByCourseId(Long id);
 
     String create(LessonRequest lessonRequest);
+
+    String udpate(LessonRequest lessonRequest, Long id);
+
+    String delete(Long id);
+
+    List<LessonResponse> getByName(String name);
 }
 

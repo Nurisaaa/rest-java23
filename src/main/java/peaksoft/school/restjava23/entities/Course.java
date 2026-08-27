@@ -20,6 +20,6 @@ public class Course {
     private String description;
     @OneToMany
     private List<Student> students;
-    @OneToMany
+    @OneToMany(mappedBy = "course")
     private List<Lesson> lessons = new ArrayList<>();
 }

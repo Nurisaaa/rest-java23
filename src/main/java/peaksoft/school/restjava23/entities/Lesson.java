@@ -14,4 +14,6 @@ public class Lesson {
     private Long id;
     private String name;
     private LocalDate dateOfPublication;
+    @ManyToOne
+    private Course course;
 }

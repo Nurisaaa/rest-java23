@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Data
 public class LessonRequest {
-        private Long courseId;
+    private Long courseId;
     private String name;
     private LocalDate dateOfPublication;
 }
